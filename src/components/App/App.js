@@ -5,16 +5,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      tricks : []
     }
   }
 
 
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <h1>Sick Trick Wish List</h1>
-      </div>
+      </main>
     );
   }
 }
