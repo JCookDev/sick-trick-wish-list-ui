@@ -12,11 +12,18 @@ class Form extends Component {
     }
   }
 
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
   render() {
     return (
       <form>
         <select
-            value={this.state.stance}>
+            name="stance"
+            value={this.state.stance}
+            onChange={event => this.handleChange(event)}
+            >
             <option disabled={true} value="">
                 Choose your Stance
             </option>
@@ -29,10 +36,14 @@ class Form extends Component {
           placeholder='Name of Trick'
           name='name'
           value={this.state.name}
+          onChange={event => this.handleChange(event)}
         />
 
         <select
-            value={this.state.obstacle}>
+            name="obstacle"
+            value={this.state.obstacle}
+            onChange={event => this.handleChange(event)}
+            >
             <option disabled={true} value="">
                 Choose your Obstacle
             </option>
@@ -48,6 +59,7 @@ class Form extends Component {
           placeholder='Link to Tutorial'
           name='tutorial'
           value={this.state.tutorial}
+          onChange={event => this.handleChange(event)}
         />
 
         <button>Send It!</button>
