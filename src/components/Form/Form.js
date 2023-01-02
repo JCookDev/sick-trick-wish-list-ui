@@ -16,6 +16,20 @@ class Form extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  submitTrick = event => {
+    event.preventDefault(); 
+    const newTrick = {
+      id: Date.now(),
+      ...this.state 
+    }
+    this.props.addTrick(newTrick); 
+    this.clearInputs(); 
+  }
+
+  clearInputs = () => {
+    this.setState({ stance: '', name: '', obstacle: '', tutorial: '', });
+  }
+
   render() {
     return (
       <form>
@@ -62,7 +76,7 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
         />
 
-        <button>Send It!</button>
+        <button onClick={event => this.submitTrick(event)}>Send It!</button>
       </form>
     )
   }
