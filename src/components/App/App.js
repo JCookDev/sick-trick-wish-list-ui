@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Tricks from '../Tricks'
 import "./App.css";
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
     return (
       <main className="App">
         <h1>Sick Trick Wish List</h1>
+        <Tricks />
       </main>
     );
   }
