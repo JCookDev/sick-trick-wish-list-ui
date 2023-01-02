@@ -1,9 +1,12 @@
 import React from 'react';
-import '../Tricks/Tricks.css'
+import Card from '../Card/Card'
+import '../Tricks/Tricks.css';
 
-const Tricks = () => {
-    return(
-        <h2>Tricks will go here!</h2>
+const Tricks = ({ tricks }) => {
+    return (
+        <div className= 'tricks-container'>
+            <Card  />
+        </div>
     )
 }
 
