@@ -1,42 +1,32 @@
 import { Component } from "react";
-import Tricks from '../Tricks/Tricks'
+import Tricks from '../Tricks/Tricks';
+import Form from '../Form/Form';
 import "./App.css";
 
+const API = 'http://localhost:3001/api/v1';
+const DEFAULT_Query = '/tricks';
+
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      tricks: [
-        {
-          stance: "regular",
-          name: "treflip",
-          obstacle: "flat ground",
-          tutorial: "https://www.youtube.com/watch?v=XGw3YkQmNig",
-          id: 1,
-        },
-        {
-          stance: "switch",
-          name: "heelflip",
-          obstacle: "stairs",
-          tutorial: "https://www.youtube.com/watch?v=9N9swrZU1HA",
-          id: 2,
-        },
-        {
-          stance: "regular",
-          name: "frontside 50-50, backside 180 out",
-          obstacle: "ledge",
-          tutorial: "https://www.youtube.com/watch?v=9N9swrZU1HA",
-          id: 3,
-        },
-      ],
+      tricks: [],
     };
   }
 
+  componentDidMount() {
+    fetch(API + DEFAULT_Query)
+      .then((response) => response.json())
+      .then((data) => this.setState({ tricks: data }));
+  }
+
   render() {
+    const { tricks } = this.state;
     return (
       <main className="App">
         <h1>Sick Trick Wish List</h1>
-        <Tricks tricks={this.state.tricks} />
+        <Form />
+        <Tricks tricks={tricks} />
       </main>
     );
   }
