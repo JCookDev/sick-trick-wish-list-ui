@@ -1,4 +1,4 @@
-import React from react;
+import React from 'react';
 import '../Tricks/Tricks.css'
 
 const Tricks = () => {
